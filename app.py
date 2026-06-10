@@ -58,6 +58,15 @@ with col2:
     gaze_x = st.slider("Gaze X", 0.0, 100.0, 50.0)
 
 gaze_y = st.slider("Gaze Y", 0.0, 100.0, 50.0)
+import pandas as pd
+
+feature_data = pd.DataFrame({
+    "Feature": ["Alpha", "Beta", "Theta", "Gaze X", "Gaze Y"],
+    "Value": [alpha, beta, theta, gaze_x, gaze_y]
+})
+
+st.subheader("📊 Input Feature Visualization")
+st.bar_chart(feature_data.set_index("Feature"))
 
 # Predict button
 if st.button("🔍 Predict Engagement"):
